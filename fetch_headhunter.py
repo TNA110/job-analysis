@@ -34,16 +34,13 @@ def get_all_vacancies_findings(languages):
         salaries_sum = 0
         for vacancy in vacancies:
             salary = vacancy["salary"]
-            try:
-                if salary["currency"] == "RUR":
-                    predicted_salary = predict_salary.predict_rub_salary(salary["from"], salary["to"])
-                    if predicted_salary:
-                        salaries_sum += predicted_salary
-                        vacancies_processed += 1
-                    if vacancies_processed:
-                        average_salary = int(salaries_sum/vacancies_processed)
-            except TypeError:
-                pass
+            if salary["currency"] and salary["currency"] == "RUR":
+                predicted_salary = predict_salary.predict_rub_salary(salary["from"], salary["to"])
+                if predicted_salary:
+                    salaries_sum += predicted_salary
+                    vacancies_processed += 1
+                if vacancies_processed:
+                    average_salary = int(salaries_sum/vacancies_processed)
 
         vacancy_findings = {
             language: {
