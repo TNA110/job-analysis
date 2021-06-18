@@ -34,7 +34,7 @@ def get_all_vacancies_findings(languages):
         salaries_sum = 0
         for vacancy in vacancies:
             salary = vacancy["salary"]
-            if salary["currency"] and salary["currency"] == "RUR":
+            if salary and salary["currency"] == "RUR":
                 predicted_salary = predict_salary.predict_rub_salary(salary["from"], salary["to"])
                 if predicted_salary:
                     salaries_sum += predicted_salary
