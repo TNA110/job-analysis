@@ -40,7 +40,7 @@ def get_all_vacancies_findings(languages):
                     if predicted_salary:
                         salaries_sum += predicted_salary
                         vacancies_processed += 1
-                    if not vacancies_processed == 0:
+                    if vacancies_processed:
                         average_salary = int(salaries_sum/vacancies_processed)
             except TypeError:
                 pass
