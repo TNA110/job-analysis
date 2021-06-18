@@ -4,6 +4,10 @@ import os
 import predict_salary
 
 
+moscow_id = "4"
+programmers_catalogues_id = "48"
+
+
 def get_all_vacancies(language):
     vacancies = []
     for page in count(0):
@@ -12,8 +16,8 @@ def get_all_vacancies(language):
             "X-Api-App-Id": os.getenv("SUPERJOB_APP_ID")
         }
         params = {
-            "town": "4",
-            "catalogues": "48",
+            "town": moscow_id,
+            "catalogues": programmers_catalogues_id,
             "keyword": f"{language}",
             "page": f"{page}",
             "count": "100"

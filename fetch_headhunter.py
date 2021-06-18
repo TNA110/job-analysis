@@ -3,11 +3,14 @@ from itertools import count
 import predict_salary
 
 
+moscow_id = "1"
+
+
 def get_all_vacancies(language):
     vacancies = []
     for page in count():
         params = {
-            "area": "1",
+            "area": moscow_id,
             "page": f"{page}",
             "per_page": "100",
             "text": f"программист {language}"
