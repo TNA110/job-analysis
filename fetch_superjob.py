@@ -18,8 +18,8 @@ def get_all_vacancies(language):
         params = {
             "town": moscow_id,
             "catalogues": programmers_catalogues_id,
-            "keyword": f"{language}",
-            "page": f"{page}",
+            "keyword": language,
+            "page": page,
             "count": "100"
         }
         response = requests.get(url, headers=headers, params=params)

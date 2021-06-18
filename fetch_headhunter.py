@@ -11,7 +11,7 @@ def get_all_vacancies(language):
     for page in count():
         params = {
             "area": moscow_id,
-            "page": f"{page}",
+            "page": page,
             "per_page": "100",
             "text": f"программист {language}"
             }
