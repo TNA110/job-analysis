@@ -2,6 +2,7 @@ import fetch_headhunter
 import fetch_superjob
 import build_table
 import dotenv
+import requests
 
 
 def main():
@@ -17,8 +18,11 @@ def main():
         "C#",
         "C",
     ]
-
-    headhunter_vacancies = fetch_headhunter.get_all_vacancies_findings(languages)
+    try:
+        headhunter_vacancies = fetch_headhunter.get_all_vacancies_findings(languages)
+    except requests.exceptions.HTTPError as error:
+        if not error.status_code == 400:
+            raise
     superjob_vacancies = fetch_superjob.get_all_vacancies_findings(languages)
 
     table_entries = (
