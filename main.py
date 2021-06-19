@@ -18,11 +18,8 @@ def main():
         "C#",
         "C",
     ]
-    try:
-        headhunter_vacancies = fetch_headhunter.get_all_vacancies_findings(languages)
-    except requests.exceptions.HTTPError as error:
-        if not error.status_code == 400:
-            raise
+
+    headhunter_vacancies = fetch_headhunter.get_all_vacancies_findings(languages)
     superjob_vacancies = fetch_superjob.get_all_vacancies_findings(languages)
 
     table_entries = (
