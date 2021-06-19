@@ -3,14 +3,14 @@ from itertools import count
 import os
 import predict_salary
 
-
+SUPERJOB_APP_ID = os.getenv("SUPERJOB_APP_ID")
 moscow_id = "4"
 programmers_catalogues_id = "48"
 
 
 def get_all_vacancies(language):
     vacancies = []
-    headers = {"X-Api-App-Id": os.getenv("SUPERJOB_APP_ID")}
+    headers = {"X-Api-App-Id": SUPERJOB_APP_ID}
     params = {
         "town": moscow_id,
         "catalogues": programmers_catalogues_id,
