@@ -43,8 +43,8 @@ def get_all_vacancies_findings(languages):
                 if predicted_salary:
                     salaries_sum += predicted_salary
                     vacancies_processed += 1
-                if vacancies_processed:
-                    average_salary = int(salaries_sum/vacancies_processed)
+        if vacancies_processed:
+            average_salary = int(salaries_sum/vacancies_processed)
         vacancy_findings = {
             language: {
                 "vacancies_found": vacancies_found,
