@@ -26,8 +26,7 @@ def main():
         ("SuperJob Moscow", superjob_vacancies),
     )
 
-    for site_table_entry in table_entries:
-        table_title, site_vacancies = site_table_entry
+    for table_title, site_vacancies in table_entries:
         build_table.build_vacancies_table(table_title, site_vacancies)
 
 
