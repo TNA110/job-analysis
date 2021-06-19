@@ -8,14 +8,15 @@ moscow_id = "1"
 
 def get_all_vacancies(language):
     vacancies = []
-    for page in count():
-        params = {
-            "area": moscow_id,
-            "page": page,
-            "per_page": "100",
-            "text": f"программист {language}"
+    params = {
+        "area": moscow_id,
+        "page": None,
+        "per_page": "100",
+        "text": f"программист {language}"
             }
-        url = "https://api.hh.ru/vacancies"
+    url = "https://api.hh.ru/vacancies"
+    for page in count():
+        params.update(page=page)
         response = requests.get(url, params=params)
         try:
             response.raise_for_status()

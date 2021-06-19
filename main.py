@@ -2,7 +2,6 @@ import fetch_headhunter
 import fetch_superjob
 import build_table
 import dotenv
-import requests
 
 
 def main():

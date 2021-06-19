@@ -10,18 +10,17 @@ programmers_catalogues_id = "48"
 
 def get_all_vacancies(language):
     vacancies = []
+    headers = {"X-Api-App-Id": os.getenv("SUPERJOB_APP_ID")}
+    params = {
+        "town": moscow_id,
+        "catalogues": programmers_catalogues_id,
+        "keyword": language,
+        "page": None,
+        "count": "100"
+    }
     for page in count(0):
+        params.update(page=page)
         url = "https://api.superjob.ru/2.0/vacancies/"
-        headers = {
-            "X-Api-App-Id": os.getenv("SUPERJOB_APP_ID")
-        }
-        params = {
-            "town": moscow_id,
-            "catalogues": programmers_catalogues_id,
-            "keyword": language,
-            "page": page,
-            "count": "100"
-        }
         response = requests.get(url, headers=headers, params=params)
         response.raise_for_status()
         vacancies += response.json().get("objects")
