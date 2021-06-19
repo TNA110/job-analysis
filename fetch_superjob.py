@@ -28,7 +28,7 @@ def get_all_vacancies(language):
         if not vacancies_response.get("more"):
             break
     vacancies_found = vacancies_response.get("total")
-    return (vacancies, vacancies_found)
+    return vacancies, vacancies_found
 
 
 def get_all_vacancies_findings(languages):

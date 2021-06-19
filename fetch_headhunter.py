@@ -28,7 +28,7 @@ def get_all_vacancies(language):
             else:
                 raise
         vacancies += vacancies_response.get("items")
-    return (vacancies, vacancies_found)
+    return vacancies, vacancies_found
 
 
 def get_all_vacancies_findings(languages):
