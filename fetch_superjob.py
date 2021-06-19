@@ -23,10 +23,11 @@ def get_all_vacancies(language):
         url = "https://api.superjob.ru/2.0/vacancies/"
         response = requests.get(url, headers=headers, params=params)
         response.raise_for_status()
-        vacancies += response.json().get("objects")
-        if not response.json().get("more"):
+        vacancies_response = response.json()
+        vacancies += vacancies_response.get("objects")
+        if not vacancies_response.get("more"):
             break
-    vacancies_found = response.json().get("total")
+    vacancies_found = vacancies_response.get("total")
     return (vacancies, vacancies_found)
 
 

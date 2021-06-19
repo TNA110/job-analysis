@@ -18,15 +18,16 @@ def get_all_vacancies(language):
     for page in count():
         params.update(page=page)
         response = requests.get(url, params=params)
+        vacancies_response = response.json()
         try:
             response.raise_for_status()
-            vacancies_found = response.json().get("found")
+            vacancies_found = vacancies_response.get("found")
         except requests.exceptions.HTTPError:
             if response.status_code == 400:
                 break
             else:
                 raise
-        vacancies += response.json().get("items")
+        vacancies += vacancies_response.get("items")
     return (vacancies, vacancies_found)
 
 
