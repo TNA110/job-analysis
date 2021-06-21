@@ -6,14 +6,11 @@ def build_vacancies_table(table_title, site_vacancies):
         ("Язык программирования", "Вакансий найдено", "Вакансий обработано", "Средняя зарплата"),
     )
     for language, vacancies_findings in site_vacancies.items():
-        vacancies_found = vacancies_findings.get("vacancies_found")
-        vacancies_processed = vacancies_findings.get("vacancies_processed")
-        average_salary = vacancies_findings.get("average_salary")
         table_string = (
-            f"{language}",
-            f"{vacancies_found}",
-            f"{vacancies_processed}",
-            f"{average_salary}"
+            language,
+            vacancies_findings.get("vacancies_found"),
+            vacancies_findings.get("vacancies_processed"),
+            vacancies_findings.get("average_salary")
         )
         table_content = table_content + (table_string,)
     table_instance = AsciiTable(table_content, table_title)
