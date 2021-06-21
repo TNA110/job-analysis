@@ -51,11 +51,10 @@ def get_all_vacancies_findings(languages, SUPERJOB_APP_ID):
     all_vacancies_findings = {}
     for language in languages:
         vacancies_found, vacancies_processed, average_salary = collect_language_static(language)
-        vacancy_findings = {
+        all_vacancies_findings[language] = {
                 "vacancies_found": vacancies_found,
                 "vacancies_processed": vacancies_processed,
                 "average_salary": average_salary
             }
 
-        all_vacancies_findings[language] = vacancy_findings
     return all_vacancies_findings
