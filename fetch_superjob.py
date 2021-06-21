@@ -37,6 +37,7 @@ def get_all_vacancies_findings(languages):
         vacancies, vacancies_found = get_all_vacancies(language)
         vacancies_processed = 0
         salaries_sum = 0
+        average_salary = 0
         for vacancy in vacancies:
             if not vacancy["currency"] == "rub":
                 continue
