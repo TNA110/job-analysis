@@ -5,8 +5,7 @@ def build_vacancies_table(table_title, site_vacancies):
     table_content = (
         ("Язык программирования", "Вакансий найдено", "Вакансий обработано", "Средняя зарплата"),
     )
-    for language_vacancies in site_vacancies.items():
-        language, vacancies_findings = language_vacancies
+    for language, vacancies_findings in site_vacancies.items():
         vacancies_found = vacancies_findings.get("vacancies_found")
         vacancies_processed = vacancies_findings.get("vacancies_processed")
         average_salary = vacancies_findings.get("average_salary")
