@@ -27,7 +27,7 @@ def main():
     )
 
     for table_title, site_vacancies in table_entries:
-        build_table.build_vacancies_table(table_title, site_vacancies)
+        print(build_table.build_vacancies_table(table_title, site_vacancies))
 
 
 if __name__ == "__main__":
