@@ -3,13 +3,13 @@ from itertools import count
 import predict_salary
 
 
-moscow_id = "1"
+MOSCOW_ID = "1"
 
 
 def get_all_vacancies(language):
     vacancies = []
     params = {
-        "area": moscow_id,
+        "area": MOSCOW_ID,
         "per_page": "100",
         "text": f"программист {language}"
             }

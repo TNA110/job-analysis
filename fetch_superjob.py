@@ -4,8 +4,8 @@ import os
 import predict_salary
 
 SUPERJOB_APP_ID = os.getenv("SUPERJOB_APP_ID")
-moscow_id = "4"
-programmers_catalogues_id = "48"
+MOSCOW_ID = "4"
+PROGRAMMERS_CATALOGUES_ID = "48"
 
 
 def get_all_vacancies(language):
@@ -13,8 +13,8 @@ def get_all_vacancies(language):
     url = "https://api.superjob.ru/2.0/vacancies/"
     headers = {"X-Api-App-Id": SUPERJOB_APP_ID}
     params = {
-        "town": moscow_id,
-        "catalogues": programmers_catalogues_id,
+        "town": MOSCOW_ID,
+        "catalogues": PROGRAMMERS_CATALOGUES_ID,
         "keyword": language,
         "count": "100"
     }
