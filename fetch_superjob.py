@@ -16,7 +16,6 @@ def get_all_vacancies(language):
         "town": moscow_id,
         "catalogues": programmers_catalogues_id,
         "keyword": language,
-        "page": None,
         "count": "100"
     }
     for page in count(0):

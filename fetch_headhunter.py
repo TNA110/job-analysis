@@ -10,7 +10,6 @@ def get_all_vacancies(language):
     vacancies = []
     params = {
         "area": moscow_id,
-        "page": None,
         "per_page": "100",
         "text": f"программист {language}"
             }
