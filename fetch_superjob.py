@@ -1,14 +1,13 @@
 import requests
 from itertools import count
-import os
 import predict_salary
 
-SUPERJOB_APP_ID = os.getenv("SUPERJOB_APP_ID")
+
 MOSCOW_ID = "4"
 PROGRAMMERS_CATALOGUES_ID = "48"
 
 
-def get_all_vacancies(language):
+def get_all_vacancies(language, SUPERJOB_APP_ID):
     vacancies = []
     url = "https://api.superjob.ru/2.0/vacancies/"
     headers = {"X-Api-App-Id": SUPERJOB_APP_ID}
@@ -30,10 +29,10 @@ def get_all_vacancies(language):
     return vacancies, vacancies_found
 
 
-def get_all_vacancies_findings(languages):
+def get_all_vacancies_findings(languages, SUPERJOB_APP_ID):
     all_vacancies_findings = {}
     for language in languages:
-        vacancies, vacancies_found = get_all_vacancies(language)
+        vacancies, vacancies_found = get_all_vacancies(language, SUPERJOB_APP_ID)
         vacancies_processed = 0
         salaries_sum = 0
         average_salary = 0

@@ -2,11 +2,12 @@ import fetch_headhunter
 import fetch_superjob
 import build_table
 import dotenv
+import os
 
 
 def main():
     dotenv.load_dotenv()
-
+    SUPERJOB_APP_ID = os.getenv("SUPERJOB_APP_ID")
     languages = [
         "JavaScript",
         "Java",
@@ -19,7 +20,7 @@ def main():
     ]
 
     headhunter_vacancies = fetch_headhunter.get_all_vacancies_findings(languages)
-    superjob_vacancies = fetch_superjob.get_all_vacancies_findings(languages)
+    superjob_vacancies = fetch_superjob.get_all_vacancies_findings(language, SUPERJOB_APP_ID)
 
     table_entries = (
         ("Headhunter Mocsow", headhunter_vacancies),
