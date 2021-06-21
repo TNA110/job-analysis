@@ -4,6 +4,7 @@ import predict_salary
 
 
 MOSCOW_ID = "1"
+ACCEPTEABLE_REQUEST_DEPTH = 2000
 
 
 def get_all_vacancies(language):
@@ -15,18 +16,14 @@ def get_all_vacancies(language):
             }
     url = "https://api.hh.ru/vacancies"
     for page in count():
+        if page*int(params["per_page"]) == ACCEPTEABLE_REQUEST_DEPTH:
+            break
         params.update(page=page)
         response = requests.get(url, params=params)
+        response.raise_for_status()
         vacancies_response = response.json()
-        try:
-            response.raise_for_status()
-            vacancies_found = vacancies_response.get("found")
-        except requests.exceptions.HTTPError:
-            if response.status_code == 400:
-                break
-            else:
-                raise
         vacancies += vacancies_response.get("items")
+    vacancies_found = vacancies_response.get("found")
     return vacancies, vacancies_found
 
 
