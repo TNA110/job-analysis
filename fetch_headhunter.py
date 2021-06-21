@@ -39,7 +39,7 @@ def get_all_vacancies_findings(languages):
         average_salary = 0
         for vacancy in vacancies:
             salary = vacancy["salary"]
-            if not salary and salary["currency"] == "RUR":
+            if not (salary and salary["currency"] == "RUR"):
                 continue
             predicted_salary = predict_salary.predict_rub_salary(salary["from"], salary["to"])
             if not predicted_salary:
