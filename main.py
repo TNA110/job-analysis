@@ -20,7 +20,7 @@ def main():
     ]
 
     headhunter_vacancies = fetch_headhunter.get_all_vacancies_findings(languages)
-    superjob_vacancies = fetch_superjob.get_all_vacancies_findings(language, SUPERJOB_APP_ID)
+    superjob_vacancies = fetch_superjob.get_all_vacancies_findings(languages, SUPERJOB_APP_ID)
 
     table_entries = (
         ("Headhunter Mocsow", headhunter_vacancies),
