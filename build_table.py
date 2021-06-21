@@ -2,7 +2,7 @@ from terminaltables import AsciiTable
 
 
 def build_vacancies_table(table_title, site_vacancies):
-    table_data = (
+    table_content = (
         ("Язык программирования", "Вакансий найдено", "Вакансий обработано", "Средняя зарплата"),
     )
     for language_vacancies in site_vacancies.items():
@@ -16,7 +16,7 @@ def build_vacancies_table(table_title, site_vacancies):
             f"{vacancies_processed}",
             f"{average_salary}"
         )
-        table_data = table_data + (table_string,)
-    table_instance = AsciiTable(table_data, table_title)
+        table_content = table_content + (table_string,)
+    table_instance = AsciiTable(table_content, table_title)
     table_instance.justify_columns[2] = 'right'
     return table_instance.table
