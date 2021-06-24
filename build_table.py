@@ -14,5 +14,5 @@ def build_vacancies_table(table_title, site_vacancies):
         )
         table_content = table_content + (table_string,)
     table_instance = AsciiTable(table_content, table_title)
-    table_instance.justify_columns[2] = 'right'
+    table_instance.justify_columns[2] = "right"
     return table_instance.table
