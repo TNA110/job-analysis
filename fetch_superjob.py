@@ -9,10 +9,10 @@ MOSCOW_ID = "4"
 PROGRAMMERS_CATALOGUES_ID = "48"
 
 
-def get_all_vacancies(language, SUPERJOB_APP_ID):
+def get_all_vacancies(language, superjob_app_id):
     vacancies = []
     url = "https://api.superjob.ru/2.0/vacancies/"
-    headers = {"X-Api-App-Id": SUPERJOB_APP_ID}
+    headers = {"X-Api-App-Id": superjob_app_id}
     params = {
         "town": MOSCOW_ID,
         "catalogues": PROGRAMMERS_CATALOGUES_ID,
@@ -31,8 +31,8 @@ def get_all_vacancies(language, SUPERJOB_APP_ID):
     return vacancies, vacancies_found
 
 
-def collect_language_stats(language, SUPERJOB_APP_ID):
-    vacancies, vacancies_found = get_all_vacancies(language, SUPERJOB_APP_ID)
+def collect_language_stats(language, superjob_app_id):
+    vacancies, vacancies_found = get_all_vacancies(language, superjob_app_id)
     vacancies_processed = 0
     salaries_sum = 0
     average_salary = 0
@@ -49,10 +49,10 @@ def collect_language_stats(language, SUPERJOB_APP_ID):
     return vacancies_found, vacancies_processed, average_salary
 
 
-def get_all_vacancies_findings(languages, SUPERJOB_APP_ID):
+def get_all_vacancies_findings(languages, superjob_app_id):
     all_vacancies_findings = {}
     for language in languages:
-        vacancies_found, vacancies_processed, average_salary = collect_language_stats(language, SUPERJOB_APP_ID)
+        vacancies_found, vacancies_processed, average_salary = collect_language_stats(language, superjob_app_id)
         all_vacancies_findings[language] = {
             "vacancies_found": vacancies_found,
             "vacancies_processed": vacancies_processed,
