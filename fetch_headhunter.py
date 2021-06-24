@@ -14,10 +14,10 @@ def get_all_vacancies(language):
         "area": MOSCOW_ID,
         "per_page": "100",
         "text": f"программист {language}"
-            }
+    }
     url = "https://api.hh.ru/vacancies"
     for page in count():
-        if page*int(params["per_page"]) == ACCEPTEABLE_REQUEST_DEPTH:
+        if page * int(params["per_page"]) == ACCEPTEABLE_REQUEST_DEPTH:
             break
         params.update(page=page)
         response = requests.get(url, params=params)
@@ -52,8 +52,8 @@ def get_all_vacancies_findings(languages):
     for language in languages:
         vacancies_found, vacancies_processed, average_salary = collect_language_static(language)
         all_vacancies_findings[language] = {
-                "vacancies_found": vacancies_found,
-                "vacancies_processed": vacancies_processed,
-                "average_salary": average_salary
-            }
+            "vacancies_found": vacancies_found,
+            "vacancies_processed": vacancies_processed,
+            "average_salary": average_salary
+        }
     return all_vacancies_findings
