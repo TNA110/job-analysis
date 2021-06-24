@@ -44,8 +44,8 @@ def collect_language_static(language, SUPERJOB_APP_ID):
             continue
         salaries_sum += predicted_salary
         vacancies_processed += 1
-        if vacancies_processed:
-            average_salary = int(salaries_sum/vacancies_processed)
+    if vacancies_processed:
+        average_salary = int(salaries_sum/vacancies_processed)
     return vacancies_found, vacancies_processed, average_salary
 
 
