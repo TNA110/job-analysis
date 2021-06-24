@@ -1,8 +1,10 @@
+import os
+
+import dotenv
+
 import fetch_headhunter
 import fetch_superjob
 import build_table
-import dotenv
-import os
 
 
 def main():
