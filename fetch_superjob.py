@@ -31,7 +31,7 @@ def get_all_vacancies(language, SUPERJOB_APP_ID):
     return vacancies, vacancies_found
 
 
-def collect_language_static(language, SUPERJOB_APP_ID):
+def collect_language_stats(language, SUPERJOB_APP_ID):
     vacancies, vacancies_found = get_all_vacancies(language, SUPERJOB_APP_ID)
     vacancies_processed = 0
     salaries_sum = 0
@@ -52,7 +52,7 @@ def collect_language_static(language, SUPERJOB_APP_ID):
 def get_all_vacancies_findings(languages, SUPERJOB_APP_ID):
     all_vacancies_findings = {}
     for language in languages:
-        vacancies_found, vacancies_processed, average_salary = collect_language_static(language, SUPERJOB_APP_ID)
+        vacancies_found, vacancies_processed, average_salary = collect_language_stats(language, SUPERJOB_APP_ID)
         all_vacancies_findings[language] = {
             "vacancies_found": vacancies_found,
             "vacancies_processed": vacancies_processed,
