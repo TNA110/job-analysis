@@ -2,9 +2,9 @@ import os
 
 import dotenv
 
+import build_table
 import fetch_headhunter
 import fetch_superjob
-import build_table
 
 
 def main():
